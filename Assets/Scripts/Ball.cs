@@ -91,9 +91,9 @@ public class Ball : MonoBehaviour {
         if (isPlaying)
         {
             // Reset ball position in the center of the yard
-            gameObject.transform.localPosition = new Vector3(0, Random.Range(-200, 200), 0);
+            gameObject.transform.localPosition = new Vector3(Random.Range(-200, 200), 0, 0);
             // Give the ball some initial, random direction
-            GetComponent<Rigidbody2D>().velocity = new Vector2(1, (Random.Range(-0.5f, 0.5f))).normalized * speed;
+            GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-0.5f, 0.5f), 1).normalized * speed;
             /*switch (Random.Range(0, 1))
             {
                 case 0: rigidbody2D.velocity = new Vector2(1, (Random.Range(-0.5f, 0.5f))).normalized * speed; break;

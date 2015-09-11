@@ -34,11 +34,11 @@ public class Racket_Enemy : MonoBehaviour {
 
             if (currentBallPos > 30 && (gameObject.transform.localPosition.y + 32) <= (wallTop.transform.localPosition.y - 10))
             {
-                transform.Translate(new Vector2(0.0f, 4.5f));
+                transform.Translate(new Vector2(0.0f, 8f));
             }
             else if (currentBallPos < -30 && (gameObject.transform.localPosition.y - 32) >= (wallBottom.transform.localPosition.y + 10))
             {
-                transform.Translate(new Vector2(0.0f, -4.5f));
+                transform.Translate(new Vector2(0.0f, -8f));
             } 
         }
 

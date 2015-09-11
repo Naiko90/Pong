@@ -87,12 +87,12 @@ public class NiwController : ReceiveOscBehaviourBase
         {
             // Floor input
             int id = (int)message[1];
-            float x = (((float)message[2]) / 6.0f - 0.5f);
+            float x = (((float)message[2]) / 6.0f);
             float z = (((float)message[3]) / 6.0f);
             var position = new Vector3(x, 0, z);
             Debug.Log(position);
 
-            RacketObject.GetComponent<Racket>().SendMessage("SetPosition", new Vector3(0, 0, z));
+            RacketObject.GetComponent<Racket>().SendMessage("SetPosition", new Vector3(0, 0, x));
 
         }
     }
