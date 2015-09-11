@@ -22,6 +22,7 @@ public class Racket : MonoBehaviour {
             // Don't make the paddle move on the x axe
             gameObject.transform.localPosition = new Vector3(-370.0f, gameObject.transform.localPosition.y, gameObject.transform.localPosition.z);
 
+            /*
             // Up key pressed?
             if (Input.GetKey(up))
             {
@@ -41,6 +42,17 @@ public class Racket : MonoBehaviour {
                     transform.Translate(new Vector2(0.0f, -5.0f));
                 }
             } 
+            */
+        }
+    }
+
+    public void SetPosition(Vector3 v)
+    {
+        if (isPlaying)
+        {
+            var position = new Vector3(-370f, 0, 0);
+            position.y = Mathf.Lerp(wallTop.transform.localPosition.y - 10, wallBottom.transform.localPosition.y + 10, v.z);
+            gameObject.transform.localPosition = position;
         }
     }
 
