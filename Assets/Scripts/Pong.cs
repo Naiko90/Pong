@@ -31,7 +31,7 @@ public class Pong : MonoBehaviour {
             // Disable message
             status.GetComponent<Text>().enabled = false;
             // Make the ball move
-            ball.GetComponent<Rigidbody2D>().velocity = new Vector2(1, (Random.Range(-0.5f, 0.5f))).normalized * ball.GetComponent<Ball>().speed;
+            ball.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-0.5f, 0.5f), 1).normalized * ball.GetComponent<Ball>().speed;
             // Playing
             ball.GetComponent<Ball>().isPlaying = true;
             racket1.GetComponent<Racket>().isPlaying = true;

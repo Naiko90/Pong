@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEditor;
 
 public class Racket : MonoBehaviour {
 
@@ -17,12 +18,12 @@ public class Racket : MonoBehaviour {
 
     void FixedUpdate () 
     {
-        if (isPlaying)
+        /*if (isPlaying)
         {
             // Don't make the paddle move on the x axe
             gameObject.transform.localPosition = new Vector3(-370.0f, gameObject.transform.localPosition.y, gameObject.transform.localPosition.z);
 
-            /*
+            
             // Up key pressed?
             if (Input.GetKey(up))
             {
@@ -42,8 +43,8 @@ public class Racket : MonoBehaviour {
                     transform.Translate(new Vector2(0.0f, -5.0f));
                 }
             } 
-            */
-        }
+           
+        } */
     }
 
     public void SetPosition(Vector3 v)
@@ -52,7 +53,21 @@ public class Racket : MonoBehaviour {
         {
             var position = new Vector3(-370f, 0, 0);
             position.y = Mathf.Lerp(wallTop.transform.localPosition.y - 10, wallBottom.transform.localPosition.y + 10, v.z);
-            gameObject.transform.localPosition = position;
+            // gameObject.transform.localPosition = position;
+
+            float distance = gameObject.transform.localPosition.y - position.y;
+            if(distance > 0 && System.Math.Abs(distance) > 30)
+            {
+                gameObject.transform.localPosition = new Vector3(-370.0f, gameObject.transform.localPosition.y + -5.0f, 0.0f);
+                distance -= 5;
+                SceneView.RepaintAll();
+            }
+            else if(distance < 0 && System.Math.Abs(distance) > 30)
+            {
+                gameObject.transform.localPosition = new Vector3(-370.0f, gameObject.transform.localPosition.y + 5.0f, 0.0f);
+                distance += 5;
+                SceneView.RepaintAll();
+            }
         }
     }
 
